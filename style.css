@@ -1,0 +1,99 @@
+body {
+    background-color: #121212;
+    color: white;
+
+}
+
+#homePageDiv {
+
+    margin: auto;
+    width: 50%;
+}
+
+
+
+.headerDiv {
+    text-align: center;
+    margin: auto;
+
+}
+
+
+input[type="text"] {
+    background-color: #282D33;
+    color: white;
+
+}
+
+
+.formContainer {
+    margin: auto;
+    padding: 10px;
+}
+
+.formTable {
+    
+    margin: auto;
+    width: auto;
+    border: 3px solid #BB86FC;
+    border-radius: 5px;
+    padding: 25px;
+}
+
+.notifyAlert {
+    color: #CF6679;
+
+}
+
+.navButton {
+    background-color: #BB86FC;
+    color: black;
+    padding: 15px;
+    border: white 5px; 
+    border-radius: 7px;;
+    margin-right: 10px;
+    margin-top: 15px;
+}
+
+.buttonDiv {
+    text-align: center;
+    padding-top: 10px;
+}
+
+.formSendButton {
+    float: right;
+    background-color: #03DAC5;
+    color: black;
+    border-radius: 5px;
+    border: #03DAC5 5px; 
+    padding: 10px;
+}
+
+.formResetButton {
+    background-color: #CF6679;
+    color: black;
+    border-radius: 5px;
+    border: #03DAC5 5px; 
+    padding: 10px;
+}
+
+.unfriendButton {
+    float: right;
+    background-color: #CF6679;
+    color: black;
+    border-radius: 5px;
+    border: #03DAC5 5px; 
+    padding: 10px;
+    margin-left: 10px;
+}
+
+th {
+    padding-right: 10px;
+    padding-bottom: 10px;
+}
+
+td {
+    padding-right: 10px;
+    padding-bottom: 10px;
+}
+
