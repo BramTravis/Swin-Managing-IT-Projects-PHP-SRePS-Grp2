@@ -63,6 +63,9 @@
             echo"
                 <tr>
                     <td>
+                        <h2>Product ID</h2>
+                    </td>
+                    <td>
                         <h2>Name</h2>
                     </td>
                     <td>
@@ -71,15 +74,18 @@
                     <td>
                         <h2>Last Updated</h2>
                     </td>
-                    <td>
-                        <h2>ID</h2>
-                    </td>
                 </tr>";
 
             while ($queryResultRow) {
                 
 
                 echo "  <tr>
+                            <td>
+                                <form method='POST' action='delete_stock_record.php'>
+                                    {$queryResultRow[0]}
+                                    <input type='hidden' name='item_id' value='{$queryResultRow[0]}'>
+                                </form>
+                            </td>
                             <td>
                                 <form method='POST' action='delete_stock_record.php'>
                                     {$queryResultRow[1]}
@@ -95,13 +101,18 @@
                             <td>
                                 <form method='POST' action='delete_stock_record.php'>
                                     {$queryResultRow[3]}
-                                    <input type='hidden' name='date_changed' value='{$queryResultRow[3]}'>
+                                    <input type='hidden' name='sale_date' value='{$queryResultRow[3]}'>
+                                </form>
+                            </td>
+                            <td>
+                                <form method='POST' action='edit_stock_record.php'>
+                                    <input class='formSendButton' type='submit' value='Edit Record'>
+                                    <input type='hidden' name='item_id' value='{$queryResultRow[0]}'>
                                 </form>
                             </td>
                             <td>
                                 <form method='POST' action='delete_stock_record.php'>
                                     <input class='unfriendButton' type='submit' value='Delete Record'>
-                                    {$queryResultRow[0]}
                                     <input type='hidden' name='item_id' value='{$queryResultRow[0]}'>
                                 </form>
                             </td>

@@ -6,7 +6,7 @@
 <html lang="en">
 <head>
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-    <meta name="description" content="Managing IT Projects - Pharmacy Project" />
+    <meta name="description" content="PHP-SRePS" />
     <meta name="keywords" content="Web,programming" />
 
     <link rel="stylesheet" href="style.css">
@@ -16,7 +16,7 @@
 
 <body>
     <div class="headerDiv">
-        <h1>Peoples Health Pharmacy</h1>
+        <h1>People's Health Pharmacy</h1>
         <h1>Registration Page</h1>
     </div>
     <div class="formContainer">
