@@ -108,20 +108,23 @@
                     <form method='POST' action='edit_stock_record_process.php'>
                         <tr>
                             <td>
-                                    <input type='number' name='edit_item_id'>
+                                    <input type='number' name='edit_item_id' value='{$queryResultRow[0]}'>
+                                    <input type='hidden' name='item_id' value='{$queryResultRow[0]}'>
                             </td>
                             <td>
-                                    <input type='text' name='edit_item_name'>
+                                    <input type='text' name='edit_item_name' value='{$queryResultRow[1]}'>
+                                    <input type='hidden' name='item_name' value='{$queryResultRow[1]}'>
                             </td>
                             <td>
-                                    <input type='number' name='edit_item_quantity'>
+                                    <input type='number' name='edit_item_quantity' value='{$queryResultRow[2]}'>
+                                    <input type='hidden' name='item_quantity' value='{$queryResultRow[2]}'>
                             </td>
                             <td>
-                                    <input type='date' name='edit_item_date'>
+                                    <input type='date' name='edit_item_date' value='{$queryResultRow[3]}'>
+                                    <input type='hidden' name='item_date' value='{$queryResultRow[3]}'>
                             </td>    
                             <td>
                                     <input class='formSendButton' type='submit' value='Update Record'>
-                                    <input type='hidden' name='item_id' value='{$queryResultRow[0]}'>
                             </td>  
                         </tr>
                     </form>
