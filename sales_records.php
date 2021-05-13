@@ -63,6 +63,9 @@
             echo"
                 <tr>
                     <td>
+                        <h2>Sale ID</h2>
+                    </td>
+                    <td>
                         <h2>Name</h2>
                     </td>
                     <td>
@@ -74,47 +77,43 @@
                     <td>
                         <h2>Sale Date</h2>
                     </td>
-                    <td>
-                        <h2>Sale ID</h2>
-                    </td>
                 </tr>";
 
             while ($queryResultRow) {
                 
 
-                echo "  <tr>
-                            <td>
-                                <form method='POST' action='delete_sales_record.php'>
-                                    {$queryResultRow[1]}
-                                    <input type='hidden' name='item_name' value='{$queryResultRow[1]}'>
-                                </form>
-                            </td>
-                            <td>
-                                <form method='POST' action='delete_sales_record.php'>
-                                    {$queryResultRow[2]}
-                                    <input type='hidden' name='item_quantity' value='{$queryResultRow[2]}'>
-                                </form>
-                            </td>
-                            <td>
-                                <form method='POST' action='delete_sales_record.php'>
-                                    {$queryResultRow[3]}
-                                    <input type='hidden' name='date_changed' value='{$queryResultRow[3]}'>
-                                </form>
-                            </td>
-                            <td>
-                                <form method='POST' action='delete_sales_record.php'>
-                                    {$queryResultRow[4]}
-                                    <input type='hidden' name='item_id' value='{$queryResultRow[0]}'>
-                                </form>
-                            </td>
-                            <td>
-                                <form method='POST' action='delete_sales_record.php'>
-                                    <input class='unfriendButton' type='submit' value='Delete Record'>
-                                    {$queryResultRow[0]}
-                                    <input type='hidden' name='sale_id' value='{$queryResultRow[0]}'>
-                                </form>
-                            </td>
+                echo " 
+                        <tr>
                             
+                                <td>
+                                        {$queryResultRow[0]}
+                                </td>
+                                <td>
+                                        {$queryResultRow[1]}
+                                </td>
+                                <td>
+                                        {$queryResultRow[2]}
+                                </td>
+                                <td>
+                                        {$queryResultRow[3]}
+                                </td>
+                                <td>
+                                        {$queryResultRow[4]}
+                                </td>
+                                <td>
+                                    <form method='POST' action='edit_sale_record.php'>
+                                        <input class='formSendButton' type='submit' value='Edit Record'>
+                                        <input type='hidden' name='sale_id' value='{$queryResultRow[0]}'>
+                                    </form>
+                                </td>
+                                <td>
+                                    <form method='POST' action='delete_sales_record.php'> 
+                                        <input class='unfriendButton' type='submit' value='Delete Record'>
+                                        <input type='hidden' name='sale_id' value='{$queryResultRow[0]}'>
+                                    </form>  
+                                </td>
+
+                              
                         </tr>
                     ";
                 

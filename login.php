@@ -77,17 +77,22 @@
             $resultArray = mysqli_fetch_assoc($queryResult);
 
 
+            if ($resultArray !== NULL) {   
 
-            if ($resultArray["employee_name"] == $loginName && $resultArray["employee_password"] == $loginPassword ) {   // Verify details are correct
+                if ($resultArray["employee_name"] == $loginName && $resultArray["employee_password"] == $loginPassword ) {   // Verify details are correct
                 
                 
-                $_SESSION["loginStatus"] = TRUE;                                                                        // Set login session variables
-                $_SESSION["loginName"] = $loginName;
-                    
-                header("location:stock_inventory.php");                                                                      // Redirect to friends list
-
+                    $_SESSION["loginStatus"] = TRUE;                                                                        // Set login session variables
+                    $_SESSION["loginName"] = $loginName;
+                        
+                    header("location:stock_inventory.php");                                                                      // Redirect to friends list
+    
+                } 
             } else { echo "<p class='notifyAlert'>*The name or password you entered was incorrect.</p>";}
+                
         } else { echo "<p class='notifyAlert'>*Please enter both your login name and password.</p>";}
+
+
 
         mysqli_close($dbConnect);                                                                                        // Close database
     ?>

@@ -48,12 +48,12 @@
             $loggedInUserID = $_SESSION["loggedInUserID"];
 
 
-            $stockSearchSQL = "SELECT * 
-                                FROM stock
-                                WHERE item_id = '{$_POST["item_id"]}'
+            $saleSearchSQL = "SELECT * 
+                                FROM sales
+                                WHERE sale_id = '{$_POST["sale_id"]}'
                                 ";
 
-            $queryResult = mysqli_query($dbConnect, $stockSearchSQL);
+            $queryResult = mysqli_query($dbConnect, $saleSearchSQL);
 
             $queryResultRow = mysqli_fetch_row($queryResult);
 
@@ -63,16 +63,19 @@
             echo"
                 <tr>
                     <td>
-                        <h2>Product ID</h2>
+                        <h2>Sale ID</h2>
                     </td>
                     <td>
                         <h2>Name</h2>
                     </td>
                     <td>
+                        <h2>Price</h2>
+                    </td>
+                    <td>
                         <h2>Quantity</h2>
                     </td>
                     <td>
-                        <h2>Last Updated</h2>
+                        <h2>Sale Date</h2>
                     </td>
                 </tr>";
 
@@ -81,38 +84,44 @@
 
                 echo "  <tr>
                             <td>
-                                    {$queryResultRow[0]}
+                                {$queryResultRow[0]}
                             </td>
                             <td>
-                                    {$queryResultRow[1]}
+                                {$queryResultRow[1]} 
                             </td>
                             <td>
-                                    {$queryResultRow[2]}
+                                {$queryResultRow[2]}
                             </td>
                             <td>
-                                    {$queryResultRow[3]}
+                                {$queryResultRow[3]}
+                            </td>    
+                            <td>
+                                {$queryResultRow[4]}
                             </td>    
                         </tr>
-                    <form method='POST' action='edit_stock_record_process.php'>
+                    <form method='POST' action='edit_sale_record_process.php'>
                         <tr>
                             <td>
-                                <input type='number' name='edit_item_id' value='{$queryResultRow[0]}'>
-                                <input type='hidden' name='item_id' value='{$queryResultRow[0]}'>
                             </td>
                             <td>
                                 <input type='text' name='edit_item_name' value='{$queryResultRow[1]}'>
                                 <input type='hidden' name='item_name' value='{$queryResultRow[1]}'>
                             </td>
                             <td>
-                                <input type='number' name='edit_item_quantity' value='{$queryResultRow[2]}'>
-                                <input type='hidden' name='item_quantity' value='{$queryResultRow[2]}'>
+                                <input type='number' name='edit_item_price' value='{$queryResultRow[2]}'>
+                                <input type='hidden' name='item_price' value='{$queryResultRow[2]}'>
                             </td>
                             <td>
-                                <input type='date' name='edit_item_date' value='{$queryResultRow[3]}'>
-                                <input type='hidden' name='item_date' value='{$queryResultRow[3]}'>
+                                <input type='number' name='edit_item_quantity' value='{$queryResultRow[3]}'>
+                                <input type='hidden' name='item_quantity' value='{$queryResultRow[3]}'>
                             </td>    
                             <td>
+                                <input type='date' name='edit_sale_date' value='{$queryResultRow[4]}'>
+                                <input type='hidden' name='sale_date' value='{$queryResultRow[4]}'>
+                            </td>  
+                            <td>
                                 <input class='formSendButton' type='submit' value='Update Record'>
+                                <input type='hidden' name='sale_id' value='{$queryResultRow[0]}'>
                             </td>  
                         </tr>
                     </form>
@@ -130,9 +139,7 @@
             mysqli_close($dbConnect);                                               // Close database connection
         ?>
 
-
-
-        <div class="buttonDiv"> <button onClick="location.href='stock_inventory.php'" class="navButton">Cancel</button>
+        <div class="buttonDiv"> <button onClick="location.href='sales_records.php'" class="navButton">Cancel</button>
                                 <button onClick="location.href='logout.php'" class="navButton">Log Out</button></div>
     </div> 
 </body>

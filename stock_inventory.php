@@ -81,28 +81,16 @@
 
                 echo "  <tr>
                             <td>
-                                <form method='POST' action='delete_stock_record.php'>
                                     {$queryResultRow[0]}
-                                    <input type='hidden' name='item_id' value='{$queryResultRow[0]}'>
-                                </form>
+                            </td>
+                            <td>  
+                                    {$queryResultRow[1]}           
                             </td>
                             <td>
-                                <form method='POST' action='delete_stock_record.php'>
-                                    {$queryResultRow[1]}
-                                    <input type='hidden' name='item_name' value='{$queryResultRow[1]}'>
-                                </form>
-                            </td>
-                            <td>
-                                <form method='POST' action='delete_stock_record.php'>
                                     {$queryResultRow[2]}
-                                    <input type='hidden' name='item_quantity' value='{$queryResultRow[2]}'>
-                                </form>
                             </td>
                             <td>
-                                <form method='POST' action='delete_stock_record.php'>
-                                    {$queryResultRow[3]}
-                                    <input type='hidden' name='sale_date' value='{$queryResultRow[3]}'>
-                                </form>
+                                    {$queryResultRow[3]} 
                             </td>
                             <td>
                                 <form method='POST' action='edit_stock_record.php'>

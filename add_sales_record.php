@@ -39,7 +39,7 @@
 
                     <tr>
                         <td></td>
-                        <td><input type="submit" value="Add Stock" class="formSendButton"></td>
+                        <td><input type="submit" value="Add Sale" class="formSendButton"></td>
                         <td><input type="reset" value="Clear" class="formResetButton"> </td>
                     </tr>
                 </table>  
@@ -51,7 +51,6 @@
         </div>
     </div>
 
-
     <?php 
         $dbConnect = @mysqli_connect("127.0.0.1", "root", "toor")
 
@@ -61,21 +60,16 @@
             or die ("The database is not available.");
 
 
-
-
         if (   isset($_POST["item_name"])       && !empty($_POST["item_name"])
             && isset($_POST["item_price"])      && !empty($_POST["item_price"])                                // Check that all fields have been entered before processing 
             && isset($_POST["item_quantity"])   && !empty($_POST["item_quantity"]) ) {
 
-    
 
             $new_sale_item_name = $_POST["item_name"];                                                           // store the entered stock name in a variable
             $new_sale_item_price = $_POST["item_price"]; 
             $new_sale_item_Qty = $_POST["item_quantity"];  
 
     
-
-
 
             $stockVerificationCheckSQL = "  SELECT item_quantity
                                             FROM stock
@@ -84,7 +78,6 @@
             $queryResult = mysqli_query($dbConnect, $stockVerificationCheckSQL);                                        // Execute the query
             $resultArray = mysqli_fetch_array($queryResult, MYSQLI_NUM);
 
-            
             
             if ($resultArray[0] < $new_sale_item_Qty){                                                                  // If existing stock is less than attempted sold stock
                 echo "<p class='notifyAlert'>
@@ -96,9 +89,6 @@
             } else { $validatedStockQty = TRUE; }                                                                        // Set the validated stock Qty variable to true
 
 
-
-           
-
             if ( $validatedStockQty == TRUE ) {                                                                           // If all validations were successful, make the new sales record
 
                 
@@ -108,22 +98,10 @@
                                                             ,sale_date )
                     VALUES ('$new_sale_item_name', '$new_sale_item_price', '$new_sale_item_Qty', CURRENT_TIMESTAMP())";     // SQL to add sales record
 
-
-
-                
                     $newSaleStockUpdateSQL = "  UPDATE stock 
                                                 SET item_quantity = item_quantity - $new_sale_item_Qty  
                                                 WHERE item_name = '$new_sale_item_name'";                                      // SQL to update product stock level
-                
-
-
-
-
-
-                                                                                   
-
-                
-
+    
                 if (mysqli_query($dbConnect, $newSaleAddSQL)) {                    // Execute Add sales record query
 
                     
@@ -138,9 +116,6 @@
                 } else { echo "<p>Failed to add sales record</p>"; }               // Display error if add sales record fails
 
             }
-
-
-
 
         } else { echo "<p class='notifyAlert'>*All fields are required.</p>";}                                  // Indicate all fields must be filled out
 
