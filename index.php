@@ -121,9 +121,6 @@
         <p>Student ID: 102129842</p>
         <p>Email: 102129842@student.swin.edu.au</p>
 
-
-
-        <button onClick="location.href='signup.php'" class="navButton">Sign up</button>
         <button onClick="location.href='login.php'" class="navButton">Log in</button>
         
     </div>

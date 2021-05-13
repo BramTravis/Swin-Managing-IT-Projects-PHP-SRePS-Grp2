@@ -45,8 +45,7 @@
                 </table>  
             </form>
         <div class="buttonDiv">
-            <button onClick="location.href='index.php'" class="navButton">Home page</button>
-            <button onClick="location.href='stock_inventory.php'" class="navButton">Stock Inventory</button>
+            <button onClick="location.href='stock_inventory.php'" class="navButton">Cancel</button>
             <button onClick="location.href='logout.php'" class="navButton">Log Out</button>
         </div>
     </div>
