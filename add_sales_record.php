@@ -100,20 +100,23 @@
                     $newSaleStockUpdateSQL = "  UPDATE stock 
                                                 SET item_quantity = item_quantity - $new_sale_item_Qty  
                                                 WHERE item_name = '$new_sale_item_name'";                                      // SQL to update product stock level
-    
+                $startTime = microtime(true);
                 if (mysqli_query($dbConnect, $newSaleAddSQL)) {                    // Execute Add sales record query
+                    $endTime = microtime(true);
+                    $elapsedTime = $endTime - $startTime;
+                    echo "Record added in {$elapsedTime} seconds.";
 
                     
                     if (mysqli_query($dbConnect, $newSaleStockUpdateSQL)) {            // Execute update stock amount query
                         
                         $_SESSION["loginStatus"] = TRUE;                               // Set session variable
-                        header("location:sales_records.php");                          // Redirect to sales_records.php 
+                    header("location:sales_records.php");                          // Redirect to sales_records.php 
 
                     } else { echo "<p>Failed to update stock level</p>"; }              // Display error if stock update fails
                     
                     
                 } else { echo "<p>Failed to add sales record</p>"; }               // Display error if add sales record fails
-
+                
             }
 
         } else { echo "<p class='notifyAlert'>*All fields are required.</p>";}                                  // Indicate all fields must be filled out

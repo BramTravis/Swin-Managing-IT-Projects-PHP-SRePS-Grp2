@@ -5,7 +5,7 @@
 <html lang="en">
 <head>
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-    <meta name="description" content="Web Application Development :: Assignment 2" />
+    <meta name="description" content="Pharmacy Project" />
     <meta name="keywords" content="Web,programming" />
     <link rel="stylesheet" href="style.css">
     <title>Peoples Health Pharmacy - Sales Records</title>
@@ -41,8 +41,6 @@
         ?>
     </div>
     <div class="formContainer">
-
-
 
         <?php
             $loggedInUserID = $_SESSION["loggedInUserID"];
@@ -81,10 +79,8 @@
 
             while ($queryResultRow) {
                 
-
                 echo " 
                         <tr>
-                            
                                 <td>
                                         {$queryResultRow[0]}
                                 </td>
@@ -111,9 +107,7 @@
                                         <input class='unfriendButton' type='submit' value='Delete Record'>
                                         <input type='hidden' name='sale_id' value='{$queryResultRow[0]}'>
                                     </form>  
-                                </td>
-
-                              
+                                </td> 
                         </tr>
                     ";
                 
@@ -134,9 +128,15 @@
 
 
 
-        <div class="buttonDiv"> <button onClick="location.href='add_sales_record.php'" class="navButton">Add Sales Record</button>
+        <div class="buttonDiv"> 
+                                <form method='POST' action='export-report.php'>
+                                    <input class='navButton' type='submit' value='Download Sales Report'>
+                                    <input type='hidden' name='export-true'>
+                                </form>
+                                <button onClick="location.href='add_sales_record.php'" class="navButton">Add Sales Record</button>
                                 <button onClick="location.href='stock_inventory.php'" class="navButton">Stock Inventory</button>
-                                <button onClick="location.href='logout.php'" class="navButton">Log Out</button></div>
+                                <button onClick="location.href='logout.php'" class="navButton">Log Out</button>
+        </div>
     </div> 
 </body>
 </html>
